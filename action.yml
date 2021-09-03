@@ -1,0 +1,22 @@
+name: Golee Gke Deploy Action Workflow
+description: In order not to subscribe to the enterprise version of GitHub we publish our template actions here ;)
+inputs:
+  deployment_name:
+    description: "Deployment name"
+    required: true
+  deployment_namespace:
+    description: "Deployment namespace"
+    required: true
+  cluster_name:
+    description: "Cluster name"
+    required: true
+  cluster_zone:
+    description: "Cluster zone"
+    required: true
+  image_path:
+    description: "Docker image path"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"

@@ -1,11 +1,15 @@
 #!/bin/sh -l
 
 
+echo estart entrypoint.sh
+
 INPUT_DEPLOYMENT_NAME=${INPUT_DEPLOYMENT_NAME##*/}
 
 echo -n $GCLOUD_SERVICE_ACCOUNT_KEYFILE > ./gcloud-api-key.json
 gcloud auth activate-service-account --key-file gcloud-api-key.json
 gcloud config set project $GCLOUD_PROJECT
+
+echo install gke-gcloud-auth-plugin
 
 gcloud components install gke-gcloud-auth-plugin
 

@@ -16,6 +16,9 @@ inputs:
   image_path:
     description: "Docker image path"
     required: true
+  platform:
+    description: "Platform"
+    required: false
 
 runs:
   using: "docker"

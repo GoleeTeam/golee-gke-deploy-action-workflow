@@ -15,6 +15,7 @@ if [ "$PLATFORM" = "gke" ]; then
     kubectl rollout status deployment/$INPUT_DEPLOYMENT_NAME --namespace=$INPUT_DEPLOYMENT_NAMESPACE --timeout=300s
 elif [ "$PLATFORM" = "cloud-run" ]; then
     echo "Deploy, platform: $PLATFORM"
+    gcloud run deploy $INPUT_DEPLOYMENT_NAME --image=$INPUT_IMAGE_PATH --region=$INPUT_CLUSTER_ZONE
 else
     echo "Unsupported platform: $PLATFORM"
     exit 1
